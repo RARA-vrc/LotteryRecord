@@ -1,1 +1,1 @@
-{"v":1,"sale":1,"rev":3,"wrev":1,"n":0,"updated":"2026-10-07T19:45:16+09:00","now":1791369916,"delay_min":5,"poll":60,"mode":"news","fresh":[],"sold":20000,"sold_at":1791369916,"sold_every":30,"sold_free":[1022,256,32],"sold_paused":0}
+{"v":1,"sale":1,"rev":4,"wrev":1,"n":0,"updated":"2026-10-07T19:55:16+09:00","now":1791370516,"delay_min":5,"poll":60,"mode":"news","fresh":[{"c":"FKCX31P0","t":1791370512,"k":"t1","nm":""}],"sold":80000,"sold_at":1791370516,"sold_every":30,"sold_free":[1016,256,32],"sold_paused":0}
