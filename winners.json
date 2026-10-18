@@ -1,4 +1,4 @@
-{"sale":1,"updated":"2026-10-18T21:07:15+09:00","source":"world-check","rev":25,"remaining":{},"claims":[
+{"sale":1,"updated":"2026-10-18T21:39:15+09:00","source":"world-check","rev":26,"remaining":{},"claims":[
 {"i":0,"tier":"t1","u":1,"k":125,"n":101671,"name":"","time":"2026-10-17T19:53:13+09:00","code":"K56KPZ9H"},
 {"i":23,"tier":"zengo","u":1,"k":125,"n":101670,"name":"","time":"2026-10-17T19:53:13+09:00","code":"K56KPZ9H"},
 {"i":24,"tier":"zengo","u":1,"k":125,"n":101672,"name":"","time":"2026-10-17T19:53:13+09:00","code":"K56KPZ9H"},
@@ -16,5 +16,6 @@
 {"i":81,"tier":"t2","u":13,"k":141,"n":144453,"name":"こなそ！！！！","time":"2026-10-18T13:43:40+09:00","code":"TRG3DYQJ"},
 {"i":65,"tier":"zengo","u":22,"k":125,"n":101670,"name":"Azatogechan","time":"2026-10-18T20:21:05+09:00","code":"4HQDBV5K"},
 {"i":167,"tier":"t3","u":19,"k":6,"n":158063,"name":"harushion","time":"2026-10-18T20:40:05+09:00","code":"GTJV4B4W"},
-{"i":113,"tier":"t3","u":6,"k":130,"n":165894,"name":"NINGENN","time":"2026-10-18T21:02:09+09:00","code":"QTGXTNZ8"}
+{"i":113,"tier":"t3","u":6,"k":130,"n":165894,"name":"NINGENN","time":"2026-10-18T21:02:09+09:00","code":"QTGXTNZ8"},
+{"i":179,"tier":"t3","u":22,"k":6,"n":158063,"name":"Egqm4N","time":"2026-10-18T21:27:18+09:00","code":"2B5TSM4N"}
 ]}
