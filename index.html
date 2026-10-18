@@ -2,374 +2,243 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>幸運貯蔵庫 - FortuneDepot ｜ 第1回 RARA 年末くじ</title>
-<meta name="description" content="VRChat ワールド「幸運貯蔵庫 - FortuneDepot」の 第1回 RARA 年末くじ。全世界の販売状況・★の残り・高額当せんの記録（架空のお金です）。">
+<meta name="description" content="VRChat ワールド「幸運貯蔵庫 - FortuneDepot」の 第1回 RARA 年末くじ。販売状況と高額当せんの記録（架空のお金です）。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="幸運貯蔵庫 - FortuneDepot ｜ 第1回 RARA 年末くじ">
-<meta property="og:description" content="全世界の販売状況・★の残り・高額当せんの記録。VRChat ワールドの中だけの架空のくじです。">
+<meta property="og:description" content="販売状況と高額当せんの記録。VRChat ワールドの中だけの架空のくじです。">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#141517">
-<meta name="color-scheme" content="dark">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23141517'/%3E%3Cpath d='M16 4l3.5 7.6 8.3.9-6.2 5.6 1.8 8.2L16 22.1l-7.4 4.2 1.8-8.2-6.2-5.6 8.3-.9z' fill='%23FFC740'/%3E%3C/svg%3E">
+<meta name="color-scheme" content="light">
 <style>
 :root{
-  --bg:#141517;
-  --bg2:#1b1d20;
-  --steel:#24272b;
-  --steel2:#2d3136;
-  --edge:#3b4047;
-  --text:#ece6dc;
-  --muted:#a59d91;
-  --faint:#6f6a63;
-  --lamp:#ffb347;
-  --kraft:#c9a678;
-  --kraft2:#b8925f;
-  --ink:#2a1f14;
-  --ink2:#5a4632;
-  --gold:#ffc740;
-  --t1:#ffc740;
-  --zengo:#fa8f33;
-  --t2:#c7d1e6;
-  --t3:#cc8550;
-  --ok:#7fc77a;
-  --bad:#ff7a6b;
-  --r:14px;
+  --paper:#f7f5ef;
+  --ink:#1c1b19;
+  --sub:#5f5b54;
+  --faint:#8c877e;
+  --rule:#cfcac0;
+  --rule-strong:#1c1b19;
+  --gold:#8a6a1f;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{
-  margin:0;
-  background:
-    radial-gradient(1200px 520px at 50% -140px, rgba(255,179,71,.20), rgba(255,179,71,0) 70%),
-    repeating-linear-gradient(45deg, rgba(255,255,255,.018) 0 2px, transparent 2px 9px),
-    repeating-linear-gradient(-45deg, rgba(0,0,0,.20) 0 2px, transparent 2px 9px),
-    var(--bg);
-  color:var(--text);
-  font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI","Yu Gothic","Meiryo",system-ui,sans-serif;
-  font-size:15px;
-  line-height:1.6;
-  overflow-x:hidden;
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic","Meiryo",sans-serif;
+  font-size:15px;line-height:1.75}
+.page{max-width:720px;margin:0 auto;padding:28px 16px 40px}
+.num,table{font-variant-numeric:tabular-nums}
+a{color:var(--ink)}
+.serif,h1,h2{font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;font-weight:600}
+
+header h1{font-size:26px;line-height:1.3;margin:0;letter-spacing:.02em}
+header .sale{margin:2px 0 0;font-size:16px}
+header .desc{margin:10px 0 0;color:var(--sub);font-size:14px}
+header .link{margin:6px 0 0;font-size:14px}
+
+nav.tabs{margin:22px 0 0;border-top:1px solid var(--rule-strong);border-bottom:1px solid var(--rule);
+  display:flex;flex-wrap:wrap;gap:0 22px;padding:8px 0}
+nav.tabs a{text-decoration:none;color:var(--sub);font-size:15px;padding:2px 0}
+nav.tabs a[aria-current="page"]{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
+
+main section{display:none;padding-top:20px}
+main section.on{display:block}
+h2{font-size:19px;margin:0 0 12px}
+h3{font-size:15px;margin:26px 0 8px}
+p{margin:8px 0}
+.note{color:var(--sub);font-size:13.5px}
+.status{color:var(--faint);font-size:13px;margin:0 0 14px}
+.status.err{color:#9b2c1f}
+.status button{font:inherit;font-size:13px;background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:pointer;margin-left:6px}
+
+dl.sold{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 16px;align-items:baseline}
+dl.sold dt{color:var(--sub);font-size:14px}
+dl.sold dd{margin:0}
+dl.sold .big{font-size:24px;font-weight:600}
+.meter{height:3px;background:var(--rule);margin:14px 0 6px}
+.meter i{display:block;height:3px;background:var(--ink);min-width:2px}
+
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+caption{text-align:left;font-size:13px;color:var(--sub);padding-bottom:4px}
+th,td{text-align:left;padding:7px 8px 7px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{font-weight:600;font-size:13px;color:var(--sub);border-bottom:1px solid var(--rule-strong)}
+td.r,th.r{text-align:right;padding-right:0}
+.gold{color:var(--gold);font-weight:700}
+tfoot td{border-bottom:0;border-top:1px solid var(--rule-strong);font-weight:600}
+.nw{white-space:nowrap}
+.cell-num span,.cell-dt span{display:inline-block;white-space:nowrap;margin-right:.5em}
+.none{color:var(--faint)}
+td.name{overflow-wrap:anywhere}
+.odds{margin:14px 0 0}
+.filter{margin:0 0 10px;font-size:14px}
+.filter select{font:inherit;font-size:14px;padding:2px 4px;background:var(--paper);color:var(--ink);border:1px solid var(--rule);border-radius:2px}
+.more{font:inherit;font-size:14px;background:none;border:0;padding:8px 0;text-decoration:underline;cursor:pointer;color:var(--ink)}
+ul.plain{margin:6px 0;padding-left:1.2em}
+ul.plain li{margin:2px 0}
+
+footer{margin-top:40px;padding-top:10px;border-top:1px solid var(--rule);color:var(--faint);font-size:12.5px}
+footer p{margin:2px 0}
+
+@media (max-width:480px){
+  header h1{font-size:23px}
+  table{font-size:14px}
+  .hide-s{display:none}
+  nav.tabs{gap:0 16px}
+  nav.tabs a{font-size:14.5px}
 }
-a{color:var(--lamp)}
-.wrap{max-width:1080px;margin:0 auto;padding:0 16px 40px}
-.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
-.en{display:block;font-size:.72em;color:var(--muted);letter-spacing:.04em;font-weight:500;line-height:1.35}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-
-/* ---------- header ---------- */
-header.top{position:relative;text-align:center;padding:0 0 18px}
-.lamp{position:relative;height:92px;margin:0 auto}
-.lamp .cord{position:absolute;left:50%;top:0;width:2px;height:44px;margin-left:-1px;background:#3a3631}
-.lamp .shade{position:absolute;left:50%;top:42px;width:92px;height:30px;margin-left:-46px;
-  background:linear-gradient(180deg,#4a4f55,#2c3034);clip-path:polygon(32% 0,68% 0,100% 100%,0 100%);}
-.lamp .bulb{position:absolute;left:50%;top:66px;width:26px;height:13px;margin-left:-13px;border-radius:0 0 13px 13px;
-  background:#ffe2a8;box-shadow:0 0 18px 6px rgba(255,190,90,.55),0 0 80px 30px rgba(255,170,60,.18)}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-top:6px}
-.eyebrow::before,.eyebrow::after{content:"";width:22px;height:6px;background:repeating-linear-gradient(-45deg,#f2b632 0 4px,#1b1b1b 4px 8px);border-radius:1px}
-h1{margin:10px 0 2px;font-size:clamp(26px,7.4vw,46px);line-height:1.15;letter-spacing:.02em;font-weight:800}
-h1 .dep{display:block;font-size:.52em;font-weight:700;letter-spacing:.18em;color:var(--lamp);margin-top:6px}
-.sale-title{margin:12px auto 0;display:inline-block;padding:6px 14px;border-radius:999px;background:rgba(255,199,64,.10);border:1px solid rgba(255,199,64,.35);color:var(--gold);font-weight:700;font-size:15px}
-.lead{max-width:640px;margin:14px auto 0;color:#d8d0c3;font-size:14.5px}
-.lead .en{margin-top:4px}
-.cta{margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;font-weight:700;text-decoration:none;font-size:14.5px;
-  background:linear-gradient(180deg,#ffcf6a,#f2a93a);color:#2a1a05;border:1px solid #c98a24;box-shadow:0 2px 0 #8a5a12, 0 8px 24px rgba(255,170,60,.18)}
-.btn small{font-weight:600;opacity:.8}
-.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--edge);box-shadow:none}
-
-/* ---------- panels ---------- */
-section{margin-top:22px}
-.panel{position:relative;background:linear-gradient(180deg,var(--steel2),var(--steel));border:1px solid var(--edge);border-radius:var(--r);padding:18px 16px;
-  box-shadow:0 1px 0 rgba(255,255,255,.05) inset, 0 12px 30px rgba(0,0,0,.35)}
-.panel::before,.panel::after{content:"";position:absolute;top:9px;width:6px;height:6px;border-radius:50%;
-  background:radial-gradient(circle at 35% 35%,#7b828a,#2a2e33);box-shadow:0 1px 0 rgba(255,255,255,.08)}
-.panel::before{left:9px}.panel::after{right:9px}
-.sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:0 0 12px;flex-wrap:wrap}
-.sec-h h2{margin:0;font-size:19px;line-height:1.3;font-weight:800;display:flex;align-items:center;gap:10px}
-.sec-h h2::before{content:"";flex:none;width:8px;height:22px;border-radius:2px;background:repeating-linear-gradient(-45deg,#f2b632 0 4px,#1b1b1b 4px 8px)}
-.sec-h h2 .en{display:inline;font-size:12px;margin-left:2px}
-.sec-h .side{color:var(--muted);font-size:12.5px}
-
-/* ---------- sales ---------- */
-.kraft{background:
-    repeating-linear-gradient(0deg, rgba(90,60,30,.05) 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(90deg, rgba(255,255,255,.04) 0 1px, transparent 1px 4px),
-    linear-gradient(180deg,#d2b083,#c19b6a);
-  color:var(--ink);border-radius:10px;padding:16px 16px 14px;border:1px solid #9c7a4c;box-shadow:0 2px 0 #7d5f39, 0 10px 24px rgba(0,0,0,.25)}
-.kraft .en{color:var(--ink2)}
-.sold-label{font-size:13px;font-weight:700;color:var(--ink2)}
-.sold-big{font-size:clamp(30px,9vw,52px);font-weight:900;line-height:1.1;letter-spacing:.01em;margin:4px 0 2px;word-break:break-all}
-.sold-big small{font-size:.42em;font-weight:700;margin-left:4px}
-.sold-of{font-size:13.5px;color:var(--ink2)}
-.bar{position:relative;height:18px;border-radius:9px;background:#5b4630;margin:14px 0 6px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.4) inset}
-.bar i{position:absolute;left:0;top:0;bottom:0;border-radius:9px;background:linear-gradient(90deg,#ffcf6a,#ffb347);box-shadow:0 0 12px rgba(255,190,90,.7);min-width:8px;transition:width .8s ease}
-.bar-row{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--ink2);flex-wrap:wrap}
-.bar-row b{color:var(--ink);font-size:15px}
-.note-kraft{margin-top:10px;font-size:12.5px;color:var(--ink2);border-top:1px dashed rgba(42,31,20,.35);padding-top:8px}
-.meta-row{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin-top:12px;font-size:13px;color:var(--muted)}
-.live{display:inline-flex;align-items:center;gap:8px}
-.ring{width:18px;height:18px;border-radius:50%;background:conic-gradient(var(--lamp) var(--p,0%), #3a3f45 0);display:inline-block;position:relative}
-.ring::after{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--steel)}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 8px var(--ok)}
-.dot.err{background:var(--bad);box-shadow:0 0 8px var(--bad)}
-.dot.wait{background:var(--lamp);box-shadow:0 0 8px var(--lamp)}
-.err-box{display:none;margin-top:12px;padding:10px 12px;border-radius:10px;background:rgba(255,122,107,.10);border:1px solid rgba(255,122,107,.4);color:#ffd2cc;font-size:13.5px;align-items:center;gap:10px;flex-wrap:wrap}
-.err-box.on{display:flex}
-.err-box button{margin-left:auto}
-button.small{font:inherit;font-size:13px;font-weight:700;padding:6px 12px;border-radius:8px;border:1px solid var(--edge);background:var(--bg2);color:var(--text);cursor:pointer}
-button.small:hover{border-color:var(--lamp)}
-
-/* ---------- stars ---------- */
-.stars-head{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:14px}
-.stars-total{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.stars-total .big{font-size:34px;font-weight:900;color:var(--gold);line-height:1}
-.stars-total .of{color:var(--muted);font-size:14px}
-.odds{background:var(--bg2);border:1px solid var(--edge);border-radius:10px;padding:10px 12px;font-size:14px}
-.odds b{color:var(--gold);font-size:17px}
-.odds .tag{display:inline-block;font-size:11px;font-weight:800;color:#2a1a05;background:var(--lamp);border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:2px}
-.tiers{display:grid;grid-template-columns:1fr;gap:10px}
-.tier{border:1px solid var(--edge);border-radius:12px;padding:12px 12px 12px;background:rgba(0,0,0,.18);position:relative;overflow:hidden}
-.tier::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c)}
-.tier-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.tname{font-weight:800;font-size:16px}
-.tamt{font-weight:800;color:var(--c);font-size:16px}
-.tleft{margin-left:auto;font-size:13px;color:var(--muted)}
-.tleft b{font-size:22px;color:var(--text)}
-.pips{display:flex;flex-wrap:wrap;gap:3px;margin:10px 0 8px}
-.pip{width:9px;height:9px;border-radius:2px;background:var(--c);box-shadow:0 0 6px color-mix(in srgb, var(--c) 45%, transparent)}
-.pip.won{background:transparent;box-shadow:none;outline:1px solid #555b62;outline-offset:-1px}
-.tsub{font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 14px}
-.tsub .wn{color:#d8d0c3}
-.fresh-note{margin-top:10px;font-size:12.5px;color:var(--lamp)}
-details.more{margin-top:14px;border-top:1px dashed var(--edge);padding-top:10px}
-details.more summary{cursor:pointer;color:var(--lamp);font-size:13.5px;font-weight:700}
-details.more p{font-size:13px;color:#cfc7ba;margin:8px 0}
-.ptable-wrap{overflow-x:auto;margin-top:8px}
-table.ptable{width:100%;border-collapse:collapse;font-size:12.5px}
-.ptable th,.ptable td{padding:7px 6px;border-bottom:1px solid #353a40;text-align:right;white-space:nowrap}
-.ptable th:first-child,.ptable td:first-child{text-align:left}
-.ptable th{color:var(--muted);font-weight:600;font-size:11.5px;white-space:normal;vertical-align:bottom}
-.ptable th,.ptable td{padding-left:4px;padding-right:4px}
-.ptable td.star{color:var(--gold)}
-
-/* ---------- winners ---------- */
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
-.chip{font:inherit;font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;border:1px solid var(--edge);background:var(--bg2);color:var(--text);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
-.chip .c{font-weight:600;color:var(--muted);font-size:12px}
-.chip[aria-pressed="true"]{background:var(--c,var(--lamp));color:#1d1408;border-color:transparent}
-.chip[aria-pressed="true"] .c{color:#3d2a12}
-.chip .sw{width:9px;height:9px;border-radius:50%;background:var(--c,var(--lamp))}
-.chip[aria-pressed="true"] .sw{background:#1d1408}
-.list{display:grid;gap:8px}
-.row{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 10px;align-items:center;padding:10px 12px;border-radius:10px;background:rgba(0,0,0,.20);border:1px solid #33383e}
-.row.new{animation:flash 2.4s ease 2}
-@keyframes flash{0%,100%{border-color:#33383e}40%{border-color:var(--lamp);box-shadow:0 0 18px rgba(255,179,71,.35)}}
-.badge{grid-row:1/3;align-self:start;min-width:58px;text-align:center;font-weight:900;font-size:13px;padding:5px 6px;border-radius:8px;color:#1d1408;background:var(--c);line-height:1.2}
-.badge small{display:block;font-size:10px;font-weight:700;opacity:.8}
-.r-main{min-width:0}
-.r-prize{font-weight:800;color:var(--c)}
-.r-ticket{font-size:13.5px;color:#d8d0c3;word-break:keep-all;overflow-wrap:anywhere}
-.r-ticket span{white-space:nowrap;display:inline-block}
-.r-ticket .u{margin-right:.8em}
-.tsub .wn span{white-space:nowrap;display:inline-block;margin-right:.8em}
-.more-btn{display:block;margin:10px auto 0}
-.r-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.r-time{font-size:12.5px;color:var(--muted);white-space:nowrap}
-.r-foot{grid-column:2;display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
-.r-name{font-weight:700;overflow-wrap:anywhere;min-width:0}
-.r-name.none{font-weight:500;color:var(--faint)}
-.r-code{font-size:11px;color:var(--faint);letter-spacing:.06em;white-space:nowrap}
-.row.fresh{border-style:dashed;border-color:rgba(255,179,71,.5)}
-.row.fresh .r-ticket{color:var(--lamp)}
-.empty{color:var(--muted);font-size:14px;padding:14px;text-align:center;border:1px dashed var(--edge);border-radius:10px}
-.cols{display:grid;grid-template-columns:1fr;gap:22px}
-.rank{list-style:none;margin:0;padding:0;display:grid;gap:6px;counter-reset:r}
-.rank li{display:grid;grid-template-columns:30px 1fr auto;gap:8px;align-items:center;padding:8px 10px;border-radius:10px;background:rgba(0,0,0,.18);border:1px solid #33383e}
-.rank .no{font-weight:900;text-align:center;color:var(--muted)}
-.rank li:nth-child(1) .no{color:var(--gold)}
-.rank li:nth-child(2) .no{color:var(--t2)}
-.rank li:nth-child(3) .no{color:var(--t3)}
-.rank .nm{font-weight:700;overflow-wrap:anywhere;min-width:0}
-.rank .nm small{display:block;font-weight:500;color:var(--muted);font-size:12px}
-.rank .sum{font-weight:800;color:var(--gold);text-align:right;white-space:nowrap}
-.fine{font-size:12px;color:var(--muted);margin-top:8px}
-
-/* ---------- hall of fame ---------- */
-.hall{background:
-  radial-gradient(600px 200px at 50% 0, rgba(255,199,64,.16), transparent 70%),
-  linear-gradient(180deg,#2f2a20,#22201b);border-color:#6b5a2e}
-.hall .sec-h h2{color:var(--gold)}
-.hall-num{font-size:14px;color:#e9dcc0;margin:-4px 0 12px}
-.hall-num b{color:var(--gold);font-size:17px}
-.hgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
-.hcell{border-radius:10px;padding:8px 8px;border:1px solid #4a4234;background:rgba(0,0,0,.25);min-width:0}
-.hcell .hu{font-size:11.5px;color:#b9ab8d;letter-spacing:.05em}
-.hcell .hu b{font-size:15px;color:#e9dcc0;letter-spacing:0}
-.hcell .hn{font-weight:800;overflow-wrap:anywhere;font-size:14px}
-.hcell .hd{font-size:11.5px;color:#b9ab8d}
-.hcell.won{background:linear-gradient(180deg,#ffd774,#e9a93a);border-color:#ffe39c;color:#2a1a05;box-shadow:0 0 20px rgba(255,199,64,.35)}
-.hcell.won .hu,.hcell.won .hd{color:#5a3d0d}
-.hcell.won .hu b{color:#2a1a05}
-.hcell.won .hn.none{font-weight:600;color:#5a3d0d}
-.hcell .wait{font-size:12.5px;color:#8a8070}
-
-/* ---------- footer ---------- */
-footer{margin-top:28px;padding:18px 16px 28px;border-top:1px solid var(--edge);color:var(--muted);font-size:12.5px}
-footer .wrap{padding:0}
-footer p{margin:6px 0}
-footer .must{color:#d8d0c3}
-footer .hint{display:inline-block;margin:8px 0;padding:8px 12px;border-radius:10px;border:1px solid rgba(255,179,71,.45);background:rgba(255,179,71,.08);color:#ffd9a0;font-weight:700}
-footer .credit{margin-top:14px;color:#d8d0c3}
-
-@media (min-width:640px){
-  .tiers{grid-template-columns:1fr 1fr}
-  .hgrid{grid-template-columns:repeat(4,minmax(0,1fr))}
-  .stars-head{grid-template-columns:auto 1fr;align-items:center}
-}
-@media (min-width:960px){
-  .wrap{padding:0 24px 48px}
-  .cols{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}
-  .hgrid{grid-template-columns:repeat(6,minmax(0,1fr))}
-  .panel{padding:22px 22px}
-}
-@media (prefers-reduced-motion:reduce){.row.new{animation:none}.bar i{transition:none}}
+.show-s-inline{display:none}
+@media (max-width:480px){ .show-s-inline{display:inline} }
+.cell-num .nm{display:none;white-space:normal;overflow-wrap:anywhere;margin:2px 0 0;font-weight:600}
+.cell-num .nm.none{font-weight:400}
+@media (max-width:480px){ .cell-num .nm{display:block} }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="page">
 
-<header class="top">
-  <div class="lamp" aria-hidden="true"><span class="cord"></span><span class="shade"></span><span class="bulb"></span></div>
-  <div class="eyebrow">VRChat World</div>
-  <h1>幸運貯蔵庫<span class="dep">FortuneDepot</span></h1>
-  <div class="sale-title">第1回 RARA 年末くじ <span style="font-weight:500;opacity:.75">／ RARA Year-End Lottery #1</span></div>
-  <p class="lead">倉庫に積まれた 4億6,000万枚の券から、世界でたった1本ずつの★（1等〜3等）をみんなで探す VRChat ワールドの年末くじです。このページはワールドが公開している記録をそのまま表示しています。
-    <span class="en">A year-end lottery inside a VRChat warehouse world. Fictional money only. This page shows the records the world publishes.</span></p>
-  <div class="cta">
-    <a class="btn" id="worldLink" href="https://vrchat.com/home/world/wrld_4b12668f-17d8-49d7-9182-d5fa859076dc" target="_blank" rel="noopener">ワールドを開く <small>VRChat</small></a>
-    <a class="btn ghost" href="#winners">当せんの記録 <small style="opacity:.7">Winners</small></a>
-  </div>
+<header>
+  <h1>幸運貯蔵庫 - FortuneDepot</h1>
+  <p class="sale serif">第1回 RARA 年末くじ</p>
+  <p class="desc">VRChat の倉庫ワールドで遊べる年末くじです。全部で4億6,000万枚、1等〜3等は世界で1本ずつ。このページはワールドが公開している記録を表示しています。</p>
+  <p class="link"><a href="https://vrchat.com/home/world/wrld_4b12668f-17d8-49d7-9182-d5fa859076dc" target="_blank" rel="noopener">VRChat でワールドを開く</a></p>
 </header>
 
-<!-- 2. sales -->
-<section id="sales" class="panel" aria-labelledby="h-sales">
-  <div class="sec-h"><h2 id="h-sales">全世界の販売状況 <span class="en">Tickets sold</span></h2>
-    <div class="side">全 <span class="num">460,000,000</span> 枚・23ユニット</div></div>
-  <div class="kraft">
-    <div class="sold-label">販売済み（公開の集計）<span class="en">Sold, as publicly counted</span></div>
-    <div class="sold-big num"><span id="soldNum">—</span><small>枚</small></div>
-    <div class="sold-of num" id="soldOf">集計を読み込んでいます…</div>
-    <div class="bar" role="progressbar" aria-label="販売の進み具合" aria-valuemin="0" aria-valuemax="100" id="soldBar"><i id="soldFill" style="width:0"></i></div>
-    <div class="bar-row num"><span><b id="soldPct">—</b> 販売済み</span><span id="soldLeft"></span></div>
-    <div class="note-kraft">世界中の会場から届いた報告の合計です。報告できない人の分は入らないので、実際より少なめに出ます。<span class="en">The sum of reports from every instance. It undercounts the real draws.</span></div>
-  </div>
-  <div class="meta-row">
-    <span id="soldAt">最終集計 —</span>
-    <span class="live" id="liveBox"><span class="dot wait" id="liveDot"></span><span class="ring" id="ring" aria-hidden="true"></span><span id="liveText">読み込み中</span></span>
-  </div>
-  <div class="err-box" id="errBox" role="alert"><span>読み込めませんでした。少し待ってから もう一度読み込みます。<span class="en" style="color:#e8b3ab">Could not load the data. Retrying.</span></span><button class="small" id="retryBtn" type="button">もう一度</button></div>
-</section>
+<nav class="tabs" aria-label="ページ">
+  <a href="#sales" data-tab="sales">販売状況</a>
+  <a href="#winners" data-tab="winners">当選者</a>
+  <a href="#hall" data-tab="hall">1等殿堂</a>
+  <a href="#about" data-tab="about">このくじについて</a>
+</nav>
 
-<!-- 3. stars -->
-<section id="stars" class="panel" aria-labelledby="h-stars">
-  <div class="sec-h"><h2 id="h-stars">★ の残り <span class="en">Top prizes left</span></h2>
-    <div class="side">★ = 1等・前後賞・2等・3等（全世界で1本ずつ）</div></div>
-  <div class="stars-head">
-    <div class="stars-total"><span class="big num" id="starLeft">—</span><span class="of num" id="starOf">/ 184 本</span></div>
-    <div class="odds" id="oddsBox">1枚あたり <b class="num" id="oddsText">—</b><span class="tag">目安</span>
-      <span class="en" id="oddsEn">Chance of a ★ per ticket (rough guide)</span></div>
-  </div>
-  <div class="tiers" id="tiers"></div>
-  <div class="fresh-note" id="freshNote" hidden></div>
-  <details class="more">
-    <summary>確率の出しかた・ほかの等級 <span style="color:var(--muted);font-weight:500">How the odds work / all prizes</span></summary>
-    <p>★の券は 残っている★の数と 残りの券の数から出ます（券が売れるほど、★が残っているほど 当たりやすくなります）。ここの「1枚あたり」は、ワールドの販売板と同じ式に 公開の販売数と 公開の当せん記録を入れた<b>目安</b>です。ワールドの中では、その会場で出たばかりの★や 自分で受け取った最新の集計も入るので、少し違う数になることがあります。</p>
-    <p>4等〜7等と 組違い賞は 何本でも当たる等級で、確率は いつも同じです。当せん金はすべてワールドの中だけの架空のお金です。</p>
-    <div class="ptable-wrap"><table class="ptable num" id="ptable">
-      <thead><tr><th>等級</th><th>当せん金</th><th>本数<br>（全23ユニット）</th><th>1枚あたり</th></tr></thead>
+<main>
+  <p class="status" id="status" role="status">読み込んでいます</p>
+
+  <!-- 販売状況 -->
+  <section id="v-sales" aria-labelledby="h-sales">
+    <h2 id="h-sales">販売状況</h2>
+    <dl class="sold">
+      <dt>販売済み</dt><dd class="num"><span class="big" id="soldNum">—</span> 枚 <span id="soldPct"></span></dd>
+      <dt>残り</dt><dd class="num" id="soldLeft">—</dd>
+      <dt>全部で</dt><dd class="num">460,000,000 枚</dd>
+    </dl>
+    <div class="meter" aria-hidden="true"><i id="meter" style="width:0"></i></div>
+    <p class="note">公開の集計です。報告できない人の分は入らないので、実際より少なめに出ます。</p>
+
+    <h3>★の残り（1等〜3等）</h3>
+    <table>
+      <thead><tr><th>等級</th><th class="r">当せん金</th><th class="r">残り</th></tr></thead>
+      <tbody id="starRows"></tbody>
+      <tfoot><tr><td>計</td><td></td><td class="r num" id="starTotal">—</td></tr></tfoot>
+    </table>
+    <p class="odds" id="oddsLine"></p>
+    <p class="note" id="freshNote" hidden></p>
+  </section>
+
+  <!-- 当選者 -->
+  <section id="v-winners" aria-labelledby="h-winners">
+    <h2 id="h-winners">当選者</h2>
+    <p class="filter"><label>等級 <select id="tierSel">
+      <option value="all">すべて</option>
+      <option value="t1">1等</option>
+      <option value="zengo">1等の前後賞</option>
+      <option value="t2">2等</option>
+      <option value="t3">3等</option>
+    </select></label> <span class="note" id="winCount"></span></p>
+    <table>
+      <thead><tr><th>日時</th><th>等</th><th>番号<span class="show-s-inline">・名前</span></th><th class="hide-s">名前</th></tr></thead>
+      <tbody id="winRows"></tbody>
+    </table>
+    <button class="more" id="moreBtn" type="button" hidden></button>
+    <p class="note">新しい順。名前は当てた人がワールドで登録したものです。番号は当せんの数分あとに公開されます。</p>
+
+    <h3>当せん金の合計（名前ごと）</h3>
+    <table>
+      <thead><tr><th class="nw">順位</th><th>名前</th><th class="r">回数</th><th class="r">合計</th></tr></thead>
+      <tbody id="rankRows"></tbody>
+    </table>
+    <p class="note" id="rankNote"></p>
+  </section>
+
+  <!-- 1等殿堂 -->
+  <section id="v-hall" aria-labelledby="h-hall">
+    <h2 id="h-hall">1等殿堂</h2>
+    <p>1等 7億円　当せん番号 <span class="nw">125組 101671番</span>（どのユニットも同じ番号、各ユニットに1本）<br><span class="note" id="hallCount"></span></p>
+    <table>
+      <thead><tr><th class="nw">ユニット</th><th>名前</th><th class="r">日付</th></tr></thead>
+      <tbody id="hallRows"></tbody>
+    </table>
+  </section>
+
+  <!-- このくじについて -->
+  <section id="v-about" aria-labelledby="h-about">
+    <h2 id="h-about">このくじについて</h2>
+    <p>券はユニット 1〜23、組 1〜200、番号 100000〜199999 の 4億6,000万枚。1枚 300円（架空）です。当せん番号はどのユニットも共通です。</p>
+
+    <h3>当せん金</h3>
+    <table>
+      <thead><tr><th>等級</th><th class="r">当せん金</th><th class="r">本数</th><th class="r hide-s">1枚あたり</th></tr></thead>
       <tbody>
-        <tr><td>1等 ★</td><td>7億円</td><td>23</td><td class="star">上の目安</td></tr>
-        <tr><td>1等の前後賞 ★</td><td>1億5,000万円</td><td>46</td><td class="star">上の目安</td></tr>
-        <tr><td>1等の組違い賞</td><td>10万円</td><td>4,577</td><td>約10万分の1</td></tr>
-        <tr><td>2等 ★</td><td>1億円</td><td>23</td><td class="star">上の目安</td></tr>
-        <tr><td>3等 ★</td><td>1,000万円</td><td>92</td><td class="star">上の目安</td></tr>
-        <tr><td>4等</td><td>100万円</td><td>920</td><td>50万分の1</td></tr>
-        <tr><td>5等</td><td>1万円</td><td>1,380,000</td><td>約333分の1</td></tr>
-        <tr><td>6等</td><td>3,000円</td><td>4,600,000</td><td>100分の1</td></tr>
-        <tr><td>7等</td><td>300円</td><td>46,000,000</td><td>10分の1</td></tr>
+        <tr><td class="gold">1等 ★</td><td class="r">7億円</td><td class="r">23</td><td class="r hide-s">残りで変わる</td></tr>
+        <tr><td>1等の前後賞 ★</td><td class="r">1億5,000万円</td><td class="r">46</td><td class="r hide-s">残りで変わる</td></tr>
+        <tr><td>1等の組違い賞</td><td class="r">10万円</td><td class="r">4,577</td><td class="r hide-s">約10万分の1</td></tr>
+        <tr><td>2等 ★</td><td class="r">1億円</td><td class="r">23</td><td class="r hide-s">残りで変わる</td></tr>
+        <tr><td>3等 ★</td><td class="r">1,000万円</td><td class="r">92</td><td class="r hide-s">残りで変わる</td></tr>
+        <tr><td>4等</td><td class="r">100万円</td><td class="r">920</td><td class="r hide-s">50万分の1</td></tr>
+        <tr><td>5等</td><td class="r">1万円</td><td class="r">1,380,000</td><td class="r hide-s">約333分の1</td></tr>
+        <tr><td>6等</td><td class="r">3,000円</td><td class="r">4,600,000</td><td class="r hide-s">100分の1</td></tr>
+        <tr><td>7等</td><td class="r">300円</td><td class="r">46,000,000</td><td class="r hide-s">10分の1</td></tr>
       </tbody>
-    </table></div>
-    <p style="color:var(--muted);font-size:12px">券は1枚 300円（架空）。ユニット 1〜23 × 組 1〜200 × 番号 100000〜199999。当せん番号は どのユニットも共通です。</p>
-  </details>
-</section>
+    </table>
+    <p class="note">本数は23ユニットの合計。★の等級（1等・前後賞・2等・3等）は全世界で1本ずつ、合わせて184本です。</p>
 
-<!-- 4. winners + ranking -->
-<section id="winners" aria-labelledby="h-win">
-  <div class="cols">
-    <div class="panel">
-      <div class="sec-h"><h2 id="h-win">新しい当せん <span class="en">Latest winners</span></h2>
-        <div class="side" id="winCount"></div></div>
-      <div class="chips" id="chips" role="group" aria-label="等級で絞り込む"></div>
-      <div class="list" id="winList"><div class="empty">読み込んでいます…</div></div>
-      <p class="fine">名前は当てた人が ワールドで登録したものです。</p>
-    </div>
-    <div class="panel">
-      <div class="sec-h"><h2 id="h-rank">当選者ランキング <span class="en">By total prize</span></h2></div>
-      <ol class="rank" id="rank"></ol>
-      <p class="fine" id="rankNote">名前が まったく同じ当せんだけを まとめています（「！」の数が違えば 別の名前です）。</p>
-    </div>
-  </div>
-</section>
+    <h3>★の当せん番号</h3>
+    <ul class="plain num">
+      <li>1等　<span class="nw">125組 101671番</span></li>
+      <li>1等の前後賞　<span class="nw">125組 101670番</span>・<span class="nw">125組 101672番</span></li>
+      <li>2等　<span class="nw">141組 144453番</span></li>
+      <li>3等　<span class="nw">68組 118613番</span>・<span class="nw">130組 165894番</span>・<span class="nw">18組 117449番</span>・<span class="nw">06組 158063番</span></li>
+    </ul>
 
-<!-- 5. 1st prize hall of fame -->
-<section id="hall" class="panel hall" aria-labelledby="h-hall">
-  <div class="sec-h"><h2 id="h-hall">1等 殿堂 <span class="en">1st prize hall of fame</span></h2>
-    <div class="side" id="hallCount" style="color:#e9dcc0"></div></div>
-  <p class="hall-num">1等 7億円　当せん番号 <b class="num">125組 101671番</b>（23ユニットに1本ずつ）</p>
-  <div class="hgrid" id="hgrid"></div>
-</section>
+    <h3>★の確率について</h3>
+    <p>★の券は、残っている★の数と残りの券の数から出ます。券が売れるほど、★が残っているほど当たりやすくなります。販売状況のページの確率は、ワールドの販売板と同じ式に公開の販売数と当せん記録を入れた目安です。ワールドの中ではその会場で出たばかりの★なども入るので、少し違うことがあります。</p>
 
-</div>
+    <h3>3等以上を当てるには</h3>
+    <p>Allow Untrusted URLs をオンにすると3等以上が当たります。</p>
+
+    <h3>おことわり</h3>
+    <p>このくじは VRChat ワールドの中だけの遊びです。当せん金はすべて架空のお金で、現金や景品とは交換できません。実在の宝くじや団体とは関係ありません。</p>
+
+    <h3>データ</h3>
+    <p>ワールドが公開している <a href="latest.json">latest.json</a>（販売数）と <a href="winners.json">winners.json</a>（3等以上の当せん記録）を読み込み、自動で更新しています。</p>
+
+    <p style="margin-top:26px">制作 RARA（ﾗﾗ）</p>
+  </section>
+</main>
 
 <footer>
-  <div class="wrap">
-    <p class="must">このくじは VRChat ワールドの中だけの遊びです。当せん金はすべて架空のお金で、現金や景品とは交換できません。実在の宝くじ・団体とは関係ありません。
-      <span class="en">Fictional money only: no cash, no prizes. Not affiliated with any real lottery.</span></p>
-    <p class="hint">Allow Untrusted URLs をオンにすると3等以上が当たります</p>
-    <p>データ: ワールドが公開している <a href="latest.json" rel="noopener">latest.json</a>（販売数・更新）と <a href="winners.json" rel="noopener">winners.json</a>（3等以上の当せん記録）。GitHub Pages（RARA-vrc/LotteryRecord）から読み込み、自動で更新します。
-      <span class="en">Data: latest.json and winners.json published by the world.</span></p>
-    <p>販売数は報告の合計なので少なめに出ます。当せんの番号は 少し遅れて公開されます。</p>
-    <p class="credit">制作 RARA（ﾗﾗ）</p>
-  </div>
+  <p>当せん金はすべて架空のお金です。実在の宝くじとは関係ありません。　制作 RARA（ﾗﾗ）</p>
+  <p>Fictional money only. Not affiliated with any real lottery.</p>
 </footer>
+
+</div>
 
 <script>
 (function () {
   "use strict";
 
-  // ---- sale 1 facts (RARA_LotterySale_Full.prefab / Lottery_World.unity, verified 2026-10-18)
-  var N = 460000000;              // 23 units x 200 groups x 100,000 numbers
-  var UNITS = 23;
-  var NUMBER_BASE = 100000;
+  // ---- sale 1 (RARA_LotterySale_Full.prefab / Lottery_World.unity)
+  var N = 460000000, UNITS = 23, S = 184;
   var TIERS = [
-    { key: "t1",    ja: "1等",    jaLong: "1等",          en: "1st",    amount: 700000000, per: 1, base: 0,  c: "#ffc740",
-      nums: [[125, 101671]] },
-    { key: "zengo", ja: "前後賞", jaLong: "1等の前後賞",  en: "1st ±1", amount: 150000000, per: 2, base: 23, c: "#fa8f33",
-      nums: [[125, 101670], [125, 101672]], parts: ["前", "後"] },
-    { key: "t2",    ja: "2等",    jaLong: "2等",          en: "2nd",    amount: 100000000, per: 1, base: 69, c: "#c7d1e6",
-      nums: [[141, 144453]] },
-    { key: "t3",    ja: "3等",    jaLong: "3等",          en: "3rd",    amount: 10000000,  per: 4, base: 92, c: "#cc8550",
-      nums: [[68, 118613], [130, 165894], [18, 117449], [6, 158063]] }
+    { key: "t1",    ja: "1等",         short: "1等",    amount: 700000000, per: 1, base: 0,  nums: [[125, 101671]] },
+    { key: "zengo", ja: "1等の前後賞", short: "前後賞", amount: 150000000, per: 2, base: 23, nums: [[125, 101670], [125, 101672]], parts: ["前", "後"] },
+    { key: "t2",    ja: "2等",         short: "2等",    amount: 100000000, per: 1, base: 69, nums: [[141, 144453]] },
+    { key: "t3",    ja: "3等",         short: "3等",    amount: 10000000,  per: 4, base: 92, nums: [[68, 118613], [130, 165894], [18, 117449], [6, 158063]] }
   ];
-  var S = 184;
-  // finite pool parameters (RARA_LotterySale.cs defaults; not overridden in the prefab or the scene)
+  // finite pool (RARA_LotterySale.cs defaults; not overridden in the prefab or the scene)
   var POOL = { floor: 10000, A: 3.09, B: 3, power: 8, min: 0.25, max: 4, endShare: 0.004, minShare: 0.001, zoneShare: 0.02, minStars: 143 };
+  var BY_KEY = {};
+  TIERS.forEach(function (t, i) { t.index = i; BY_KEY[t.key] = t; });
 
-  var TIER_BY_KEY = {};
-  TIERS.forEach(function (t, i) { t.index = i; TIER_BY_KEY[t.key] = t; });
-
-  // ---- helpers
+  // ---- helpers (data goes in through textContent only)
   function $(id) { return document.getElementById(id); }
   function el(tag, cls, text) {
     var e = document.createElement(tag);
@@ -377,19 +246,16 @@ footer .credit{margin-top:14px;color:#d8d0c3}
     if (text != null) e.textContent = String(text);
     return e;
   }
-  function clear(node) { while (node.firstChild) node.removeChild(node.firstChild); }
+  function clear(n) { while (n.firstChild) n.removeChild(n.firstChild); }
   function thousands(v) { return Math.floor(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
   function amountJa(v) {
-    var oku = Math.floor(v / 100000000), rem = v - oku * 100000000;
-    var man = Math.floor(rem / 10000), rest = rem - man * 10000, s = "";
+    var oku = Math.floor(v / 1e8), rem = v - oku * 1e8, man = Math.floor(rem / 1e4), rest = rem - man * 1e4, s = "";
     if (oku > 0) s += thousands(oku) + "億";
     if (man > 0) s += thousands(man) + "万";
-    if (rest > 0 || s.length === 0) s += thousands(rest);
+    if (rest > 0 || !s) s += thousands(rest);
     return s + "円";
   }
-  function group2(k) { return k < 10 ? "0" + k : String(k); }
-  // the world's Ticket(): 「ユニット13  06組 158063番」
-  function ticketParts(u, k, n) { return { unit: "ユニット" + u, num: group2(k) + "組 " + n + "番" }; }
+  function g2(k) { return k < 10 ? "0" + k : String(k); }
   function percent(part, all) {            // RARA_LotterySold.Percent
     if (all <= 0) return "0%";
     var p = Math.floor(part * 1000000 / all);
@@ -399,284 +265,188 @@ footer .credit{margin-top:14px;color:#d8d0c3}
     if (frac >= 100) return "0." + String(Math.floor(frac / 10)).padStart(3, "0") + "%";
     return "0." + String(frac).padStart(4, "0") + "%";
   }
-  var JST = null;
-  try { JST = new Intl.DateTimeFormat("ja-JP", { timeZone: "Asia/Tokyo", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false }); } catch (e) { JST = null; }
-  function jstShort(d) {
-    if (!(d instanceof Date) || isNaN(d.getTime())) return "";
+  function jst(d) {
+    if (!(d instanceof Date) || isNaN(d.getTime())) return null;
     var t = new Date(d.getTime() + 9 * 3600 * 1000);
-    var mm = String(t.getUTCMonth() + 1).padStart(2, "0"), dd = String(t.getUTCDate()).padStart(2, "0");
-    var hh = String(t.getUTCHours()).padStart(2, "0"), mi = String(t.getUTCMinutes()).padStart(2, "0");
-    return mm + "/" + dd + " " + hh + ":" + mi;
+    return { y: t.getUTCFullYear(), md: String(t.getUTCMonth() + 1).padStart(2, "0") + "/" + String(t.getUTCDate()).padStart(2, "0"),
+             hm: String(t.getUTCHours()).padStart(2, "0") + ":" + String(t.getUTCMinutes()).padStart(2, "0") };
   }
-  function jstDate(d) {
-    if (!(d instanceof Date) || isNaN(d.getTime())) return "";
-    var t = new Date(d.getTime() + 9 * 3600 * 1000);
-    return t.getUTCFullYear() + "/" + String(t.getUTCMonth() + 1).padStart(2, "0") + "/" + String(t.getUTCDate()).padStart(2, "0");
-  }
-  function parseTime(s) { var d = new Date(s); return isNaN(d.getTime()) ? null : d; }
-  function codeText(c) { return typeof c === "string" && c.length >= 8 ? c.substring(0, 4) + "-" + c.substring(4, 8) : ""; }
+  function parseTime(s) { if (typeof s !== "string") return null; var d = new Date(s); return isNaN(d.getTime()) ? null : d; }
   function num(v, fb) { var x = typeof v === "number" ? v : parseFloat(v); return isFinite(x) ? x : fb; }
 
-  // the slot of a claim (RARA_LotterySale.SlotOfTicket): -1 if the ticket is not a ★
-  function slotOf(u, k, n) {
-    if (!(u >= 1 && u <= UNITS)) return { slot: -1 };
+  function slotOf(u, k, n) {               // RARA_LotterySale.SlotOfTicket
+    if (!(u >= 1 && u <= UNITS)) return null;
     for (var i = 0; i < TIERS.length; i++) {
       var t = TIERS[i];
-      for (var j = 0; j < t.nums.length; j++) {
+      for (var j = 0; j < t.nums.length; j++)
         if (t.nums[j][0] === k && t.nums[j][1] === n) return { slot: t.base + (u - 1) * t.per + j, tier: t, idx: j };
-      }
     }
-    return { slot: -1 };
+    return null;
   }
 
-  // ---- the odds: RARA_LotterySale._PoolUpdate with the public numbers
+  // ---- odds: RARA_LotterySale._PoolUpdate with the public numbers
   function poolOdds(sold, rem) {
-    var g = sold < 0 ? 0 : Math.min(sold, N);
-    var c = S - rem;
-    var need = Math.floor((POOL.minStars * S + 183) / 184);
-    var full = sold >= N;
-    var res = { soldOut: full && c >= need, held: full && c < need };
-    var gEff = g;
-    var fStar = (c + POOL.A * Math.sqrt(c) + POOL.B) / S;
+    var g = sold < 0 ? 0 : Math.min(sold, N), c = S - rem;
+    var res = { soldOut: sold >= N && c >= Math.floor((POOL.minStars * S + 183) / 184) };
+    var gEff = g, fStar = (c + POOL.A * Math.sqrt(c) + POOL.B) / S;
     if (fStar < 1) { var gp = Math.floor(fStar * N); if (gp < gEff) gEff = gp; }
-    var M = N - gEff;
-    var fl = POOL.floor > 1 ? POOL.floor : 1;
-    if (M < fl) M = fl;
-    var mEnd = Math.floor(Math.fround(POOL.endShare) * N);
-    var mMin = Math.floor(Math.fround(POOL.minShare) * N);
-    if (mMin < fl) mMin = fl;
-    var D = M - mEnd;
-    if (D < mMin) D = mMin;
-    var w = 1;
-    if (rem > 0 && POOL.power > 0) {
-      var line = S * D / (N - mEnd);
-      var z = line > 1e-6 ? rem / line : 1000;
-      if (z > 1000) z = 1000;
-      var wMax = POOL.max;
-      var zone = Math.floor(Math.fround(POOL.zoneShare) * N);
+    var fl = Math.max(1, POOL.floor), M = Math.max(N - gEff, fl);
+    var mEnd = Math.floor(Math.fround(POOL.endShare) * N), mMin = Math.max(Math.floor(Math.fround(POOL.minShare) * N), fl);
+    var D = Math.max(M - mEnd, mMin), w = 1;
+    if (rem > 0) {
+      var line = S * D / (N - mEnd), z = Math.min(line > 1e-6 ? rem / line : 1000, 1000);
+      var wMax = POOL.max, zone = Math.floor(Math.fround(POOL.zoneShare) * N);
       if (D < zone) wMax = POOL.max * (zone / D);
       w = Math.min(Math.max(Math.fround(Math.pow(z, POOL.power)), POOL.min), wMax);
     }
-    res.w = w; res.D = D;
     res.p = rem > 0 ? Math.min(1, rem * w / D) : 0;
     return res;
   }
-  // RARA_LotterySold.OddsText (ja) / English
-  function oddsJa(p) {
+  function oddsJa(p) {                      // RARA_LotterySold.OddsText
     if (!(p > 0)) return "なし";
     var z = 1 / p, t;
-    if (z >= 100000000) { t = Math.floor(z / 10000000 + 0.5); return "約" + Math.floor(t / 10) + "." + (t % 10) + "億分の1"; }
-    if (z >= 100000) return "約" + Math.floor(z / 10000 + 0.5) + "万分の1";
-    if (z >= 10000) { t = Math.floor(z / 1000 + 0.5); return "約" + Math.floor(t / 10) + "." + (t % 10) + "万分の1"; }
+    if (z >= 1e8) { t = Math.floor(z / 1e7 + 0.5); return "約" + Math.floor(t / 10) + "." + (t % 10) + "億分の1"; }
+    if (z >= 1e5) return "約" + Math.floor(z / 1e4 + 0.5) + "万分の1";
+    if (z >= 1e4) { t = Math.floor(z / 1e3 + 0.5); return "約" + Math.floor(t / 10) + "." + (t % 10) + "万分の1"; }
     return "約" + thousands(Math.floor(z + 0.5)) + "分の1";
   }
-  function oddsEn(p) {
-    if (!(p > 0)) return "none";
-    var z = 1 / p;
-    if (z >= 1000000) { var t = Math.floor(z / 100000 + 0.5); return "about 1 in " + Math.floor(t / 10) + "." + (t % 10) + " million"; }
-    return "about 1 in " + thousands(Math.floor(z + 0.5));
+
+  // ---- tabs (URL hash)
+  var TABS = ["sales", "winners", "hall", "about"];
+  function showTab() {
+    var h = (location.hash || "").replace("#", "");
+    if (TABS.indexOf(h) < 0) h = "sales";
+    TABS.forEach(function (t) { $("v-" + t).classList.toggle("on", t === h); });
+    Array.prototype.forEach.call(document.querySelectorAll("nav.tabs a"), function (a) {
+      if (a.getAttribute("data-tab") === h) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    });
   }
+  window.addEventListener("hashchange", function () { showTab(); window.scrollTo(0, 0); });
+  showTab();
 
-  // ---- state
+  // ---- state and loading
   var latest = null, winners = null, claims = [], fresh = [];
-  var filter = "all", listLimit = 30;
-  var seenSlots = null;            // after the first load: slots already shown (for the NEW flash)
-  var newSlots = {};
-  var pollSec = 60, waitSec = 60, nextAt = 0, timer = 0, failCount = 0, loading = false, lastOk = 0;
+  var filter = "all", limit = 50;
+  var pollSec = 60, nextAt = 0, timer = 0, fails = 0, loading = false;
 
-  // ---- loading
   function getJson(name) {
-    var url = name + "?t=" + Date.now();
-    return fetch(url, { cache: "no-store" }).then(function (r) {
+    return fetch(name + "?t=" + Date.now(), { cache: "no-store" }).then(function (r) {
       if (!r.ok) throw new Error(name + " " + r.status);
       return r.json();
     });
   }
-
   function load() {
     if (loading) return;
     loading = true;
-    setLive("wait");
-    var gotLatest = null;
+    var got = null;
     getJson("latest.json").then(function (l) {
-      gotLatest = l;
-      var need = !winners || (typeof l.wrev === "number" && l.wrev !== winners.rev);
-      return need ? getJson("winners.json") : null;
+      got = l;
+      return (!winners || (typeof l.wrev === "number" && l.wrev !== winners.rev)) ? getJson("winners.json") : null;
     }, function (e) {
-      // latest.json failed: still try the full record once
-      return getJson("winners.json").then(function (w) { gotLatest = null; return w; }, function () { throw e; });
+      return getJson("winners.json").then(function (w) { return w; }, function () { throw e; });
     }).then(function (w) {
-      if (gotLatest && typeof gotLatest === "object") {
-        latest = gotLatest;
-        var p = Math.round(num(latest.poll, 60));
-        pollSec = Math.min(900, Math.max(45, p || 60));
+      if (got && typeof got === "object") {
+        latest = got;
+        pollSec = Math.min(900, Math.max(45, Math.round(num(latest.poll, 60)) || 60));
       }
       if (w && typeof w === "object") applyWinners(w);
-      if (!gotLatest) throw new Error("latest.json");
-      failCount = 0;
-      lastOk = Date.now();
-      $("errBox").classList.remove("on");
+      if (!got) throw new Error("latest.json");
+      fails = 0;
       render();
       schedule(pollSec);
     }).catch(function () {
-      failCount++;
-      $("errBox").classList.add("on");
+      fails++;
       render();
-      // back off: 15 s, 30 s, 60 s, then the poll interval
-      schedule(Math.min(pollSec, 15 * Math.pow(2, Math.min(failCount - 1, 3))));
-    }).then(function () { loading = false; updateLive(); });
+      schedule(Math.min(pollSec, 15 * Math.pow(2, Math.min(fails - 1, 3))));
+    }).then(function () { loading = false; renderStatus(); });
   }
-
-  function applyWinners(w) {
-    winners = { rev: typeof w.rev === "number" ? w.rev : -1, updated: w.updated || "", remaining: (w.remaining && typeof w.remaining === "object") ? w.remaining : {} };
-    var list = Array.isArray(w.claims) ? w.claims : [];
-    var bySlot = {}, out = [];
-    list.forEach(function (c) {
-      if (!c || typeof c !== "object") return;
-      var u = Math.round(num(c.u, -1)), k = Math.round(num(c.k, -1)), n = Math.round(num(c.n, -1));
-      var r = slotOf(u, k, n);
-      if (r.slot < 0) return;                 // not a ★ ticket (the world drops it too)
-      if (bySlot[r.slot]) return;             // one claim per slot
-      bySlot[r.slot] = true;
-      out.push({
-        slot: r.slot, tier: r.tier, idx: r.idx, u: u, k: k, n: n,
-        name: typeof c.name === "string" ? c.name : "",
-        time: parseTime(c.time), timeRaw: typeof c.time === "string" ? c.time : "",
-        code: typeof c.code === "string" ? c.code : ""
-      });
-    });
-    out.sort(function (a, b) {
-      var ta = a.time ? a.time.getTime() : 0, tb = b.time ? b.time.getTime() : 0;
-      if (tb !== ta) return tb - ta;
-      if (a.tier.index !== b.tier.index) return a.tier.index - b.tier.index;
-      return a.slot - b.slot;
-    });
-    newSlots = {};
-    if (seenSlots) out.forEach(function (c) { if (!seenSlots[c.slot]) newSlots[c.slot] = true; });
-    seenSlots = bySlot;
-    claims = out;
-  }
-
-  // ---- timer / live indicator
   function schedule(sec) {
     clearTimeout(timer);
-    waitSec = sec;
     nextAt = Date.now() + sec * 1000;
-    timer = setTimeout(tick, sec * 1000);
-  }
-  function tick() {
-    if (document.visibilityState === "hidden") return;  // resumes on visibilitychange
-    load();
+    timer = setTimeout(function () { if (document.visibilityState !== "hidden") load(); }, sec * 1000);
   }
   document.addEventListener("visibilitychange", function () {
     if (document.visibilityState === "visible" && !loading && Date.now() >= nextAt) load();
   });
-  $("retryBtn").addEventListener("click", function () { failCount = 0; load(); });
 
-  function setLive(kind) { $("liveDot").className = "dot" + (kind === "err" ? " err" : kind === "wait" ? " wait" : ""); }
-  function updateLive() {
-    var left = Math.max(0, Math.round((nextAt - Date.now()) / 1000));
-    var total = Math.max(1, waitSec);
-    var pct = loading ? 100 : Math.max(0, Math.min(100, 100 - left / total * 100));
-    $("ring").style.setProperty("--p", pct.toFixed(1) + "%");
-    if (loading) { setLive("wait"); $("liveText").textContent = "更新中…"; return; }
-    if (failCount > 0) { setLive("err"); $("liveText").textContent = "再読み込みまで " + left + "秒"; return; }
-    setLive("ok");
-    $("liveText").textContent = "自動更新 " + pollSec + "秒ごと・次まで " + left + "秒";
+  function applyWinners(w) {
+    winners = { rev: typeof w.rev === "number" ? w.rev : -1, remaining: (w.remaining && typeof w.remaining === "object") ? w.remaining : {} };
+    var seen = {}, out = [];
+    (Array.isArray(w.claims) ? w.claims : []).forEach(function (c) {
+      if (!c || typeof c !== "object") return;
+      var u = Math.round(num(c.u, -1)), k = Math.round(num(c.k, -1)), n = Math.round(num(c.n, -1));
+      var r = slotOf(u, k, n);
+      if (!r || seen[r.slot]) return;
+      seen[r.slot] = true;
+      out.push({ slot: r.slot, tier: r.tier, idx: r.idx, u: u, k: k, n: n,
+                 name: typeof c.name === "string" ? c.name : "", time: parseTime(c.time), code: typeof c.code === "string" ? c.code : "" });
+    });
+    out.sort(function (a, b) {
+      var d = (b.time ? b.time.getTime() : 0) - (a.time ? a.time.getTime() : 0);
+      return d || (a.tier.index - b.tier.index) || (a.slot - b.slot);
+    });
+    claims = out;
   }
-  setInterval(updateLive, 1000);
 
   // ---- rendering
-  function render() {
-    renderSales();
-    var counts = renderStars();
-    renderWinners(counts);
-    renderRanking();
-    renderHall();
+  function render() { renderSales(); renderWinners(); renderRanking(); renderHall(); renderStatus(); }
+
+  function renderStatus() {
+    var s = $("status");
+    clear(s);
+    if (fails > 0) {
+      s.className = "status err";
+      s.appendChild(document.createTextNode("読み込めませんでした。しばらくしてからもう一度読み込みます。"));
+      var b = el("button", null, "いま読み込む");
+      b.type = "button";
+      b.addEventListener("click", function () { fails = 0; load(); });
+      s.appendChild(b);
+      return;
+    }
+    s.className = "status";
+    if (!latest) { s.textContent = "読み込んでいます"; return; }
+    var at = num(latest.sold_at, 0), t = jst(at > 0 ? new Date(at * 1000) : parseTime(latest.updated));
+    var every = pollSec % 60 === 0 ? (pollSec / 60) + "分" : pollSec + "秒";
+    s.textContent = (t ? t.md + " " + t.hm + " 時点・" : "") + every + "ごとに自動更新" +
+      (Math.round(num(latest.sold_paused, 0)) === 1 ? "（販売数の集計はお休み中）" : "");
   }
 
   function renderSales() {
-    if (!latest) return;
-    var sold = Math.round(num(latest.sold, -1));
-    var paused = Math.round(num(latest.sold_paused, 0)) === 1;
-    if (sold < 0) {
-      $("soldNum").textContent = "—";
-      $("soldOf").textContent = "集計を待っています";
-      return;
+    if (latest) {
+      var sold = Math.round(num(latest.sold, -1));
+      if (sold >= 0) {
+        var v = Math.min(sold, N);
+        $("soldNum").textContent = thousands(v);
+        $("soldPct").textContent = "（" + percent(v, N) + "）";
+        $("soldLeft").textContent = thousands(N - v) + " 枚";
+        $("meter").style.width = (v / N * 100).toFixed(4) + "%";
+      }
     }
-    var shown = Math.min(sold, N);
-    $("soldNum").textContent = thousands(shown);
-    $("soldOf").textContent = "全 " + thousands(N) + " 枚のうち";
-    var pct = percent(shown, N);
-    $("soldPct").textContent = pct;
-    $("soldFill").style.width = Math.min(100, shown / N * 100).toFixed(4) + "%";
-    $("soldBar").setAttribute("aria-valuenow", (shown / N * 100).toFixed(2));
-    $("soldLeft").textContent = "残り " + thousands(N - shown) + " 枚";
-    var at = num(latest.sold_at, 0);
-    var when = at > 0 ? jstShort(new Date(at * 1000)) : jstShort(parseTime(latest.updated));
-    $("soldAt").textContent = "最終集計 " + (when || "—") + " JST" + (paused ? "（集計はお休み中・最後の値）" : "");
-  }
-
-  function renderStars() {
     var claimed = {};
     TIERS.forEach(function (t) { claimed[t.key] = 0; });
-    var wonSlot = {};
-    claims.forEach(function (c) { claimed[c.tier.key]++; wonSlot[c.slot] = c; });
-    var remTotal = 0, rows = {};
+    claims.forEach(function (c) { claimed[c.tier.key]++; });
+    var body = $("starRows"), total = 0;
+    clear(body);
     TIERS.forEach(function (t) {
-      var total = t.per * UNITS, left = total - claimed[t.key];
-      var fr = winners && winners.remaining ? winners.remaining[t.key] : undefined;
-      if (typeof fr === "number" && fr >= 0 && fr < left) left = fr;   // a smaller "remaining" in the file wins (Global)
-      if (left < 0) left = 0;
-      rows[t.key] = { total: total, left: left };
+      var all = t.per * UNITS, left = all - claimed[t.key], fr = winners ? winners.remaining[t.key] : undefined;
+      if (typeof fr === "number" && fr >= 0 && fr < left) left = fr;
+      left = Math.max(0, left);
+      total += left;
+      var tr = el("tr");
+      tr.appendChild(el("td", t.key === "t1" ? "gold" : null, t.ja));
+      tr.appendChild(el("td", "r", amountJa(t.amount)));
+      tr.appendChild(el("td", "r", winners ? left + " / " + all : "—"));
+      body.appendChild(tr);
     });
-    // the odds use the stock (claims only), as the world's _PoolUpdate does
-    var remStock = S - claims.length;
-    TIERS.forEach(function (t) { remTotal += rows[t.key].left; });
-    $("starLeft").textContent = "★ 残り " + remTotal;
-    $("starOf").textContent = "/ " + S + " 本";
+    $("starTotal").textContent = winners ? total + " / " + S : "—";
 
-    var sold = latest ? Math.round(num(latest.sold, -1)) : -1;
-    var po = poolOdds(sold, remStock);
-    if (po.soldOut) {
-      $("oddsText").textContent = remStock <= 0 ? "★ " + S + "本 すべて当せんしました" : "完売";
-      $("oddsEn").textContent = "Sold out";
-    } else {
-      $("oddsText").textContent = oddsJa(po.p);
-      $("oddsEn").textContent = "Chance of a ★ per ticket: " + oddsEn(po.p) + " (rough guide, same formula as the in-world board)";
-    }
+    var odds = $("oddsLine");
+    if (latest && winners) {
+      var po = poolOdds(Math.round(num(latest.sold, -1)), S - claims.length);
+      odds.textContent = po.soldOut ? "完売しました。" : "★が当たる確率（目安）　1枚あたり " + oddsJa(po.p);
+    } else odds.textContent = "";
 
-    var box = $("tiers");
-    clear(box);
-    TIERS.forEach(function (t) {
-      var r = rows[t.key];
-      var card = el("div", "tier");
-      card.style.setProperty("--c", t.c);
-      var top = el("div", "tier-top");
-      top.appendChild(el("span", "tname", t.jaLong));
-      top.appendChild(el("span", "tamt", amountJa(t.amount)));
-      var lf = el("span", "tleft num");
-      lf.appendChild(document.createTextNode("残り "));
-      lf.appendChild(el("b", null, r.left));
-      lf.appendChild(document.createTextNode(" / " + r.total));
-      top.appendChild(lf);
-      card.appendChild(top);
-      var pips = el("div", "pips");
-      pips.setAttribute("aria-hidden", "true");
-      // in the order of the slots (unit by unit)
-      for (var s = t.base; s < t.base + r.total; s++) pips.appendChild(el("i", "pip" + (wonSlot[s] ? " won" : "")));
-      card.appendChild(pips);
-      var sub = el("div", "tsub num");
-      var wn = el("span", "wn", "当せん番号 ");
-      t.nums.forEach(function (x, j) { wn.appendChild(el("span", null, (t.parts ? "（" + t.parts[j] + "）" : "") + group2(x[0]) + "組 " + x[1] + "番")); });
-      sub.appendChild(wn);
-      var pT = po.soldOut ? 0 : (remStock > 0 ? po.p * (rows[t.key].left / remStock) : 0);
-      if (!po.soldOut) sub.appendChild(el("span", null, "1枚あたり " + oddsJa(pT) + "（目安）"));
-      card.appendChild(sub);
-      box.appendChild(card);
-    });
-
-    // fresh claims (latest.json): announced before their numbers are public
+    // fresh claims: announced before their numbers are public
     fresh = [];
     if (latest && Array.isArray(latest.fresh)) {
       var codes = {};
@@ -685,159 +455,123 @@ footer .credit{margin-top:14px;color:#d8d0c3}
         if (!f || typeof f !== "object") return;
         var code = typeof f.c === "string" ? f.c : "";
         if (code && codes[code]) return;
-        var keys = (typeof f.k === "string" ? f.k : "").split(",").map(function (x) { return x.trim(); }).filter(function (x) { return TIER_BY_KEY[x]; });
-        if (!keys.length) return;
-        fresh.push({ code: code, tiers: keys.map(function (x) { return TIER_BY_KEY[x]; }), name: typeof f.nm === "string" ? f.nm : "", time: num(f.t, 0) > 0 ? new Date(num(f.t, 0) * 1000) : null });
+        var ts = (typeof f.k === "string" ? f.k : "").split(",").map(function (x) { return BY_KEY[x.trim()]; }).filter(Boolean);
+        if (!ts.length) return;
+        fresh.push({ tiers: ts, name: typeof f.nm === "string" ? f.nm : "", time: num(f.t, 0) > 0 ? new Date(num(f.t, 0) * 1000) : null });
       });
     }
     var fn = $("freshNote");
     if (fresh.length) {
-      var nStars = fresh.reduce(function (a, f) { return a + f.tiers.length; }, 0);
-      fn.textContent = "速報: ★ " + nStars + "本が 当せんしたばかりです（番号の公開と 残りの数への反映は 約" + Math.round(num(latest.delay_min, 5)) + "分後）";
+      var n = fresh.reduce(function (a, f) { return a + f.tiers.length; }, 0);
+      fn.textContent = "★が " + n + " 本 当せんしたばかりです。番号と残りの数には 約" + Math.round(num(latest.delay_min, 5)) + "分後に反映されます。";
       fn.hidden = false;
     } else fn.hidden = true;
-
-    var counts = { all: claims.length };
-    TIERS.forEach(function (t) { counts[t.key] = claimed[t.key]; });
-    return counts;
   }
 
-  function renderWinners(counts) {
-    var chips = $("chips");
-    clear(chips);
-    var defs = [{ key: "all", ja: "すべて", c: "#ffb347" }].concat(TIERS.map(function (t) { return { key: t.key, ja: t.ja, c: t.c }; }));
-    defs.forEach(function (d) {
-      var b = el("button", "chip");
-      b.type = "button";
-      b.style.setProperty("--c", d.c);
-      b.setAttribute("aria-pressed", filter === d.key ? "true" : "false");
-      if (d.key !== "all") b.appendChild(el("span", "sw"));
-      b.appendChild(document.createTextNode(d.ja));
-      b.appendChild(el("span", "c num", counts[d.key] || 0));
-      b.addEventListener("click", function () { filter = d.key; listLimit = 30; renderWinners(counts); });
-      chips.appendChild(b);
+  function dtCell(d) {
+    var td = el("td", "cell-dt num"), t = jst(d);
+    if (t) { td.appendChild(el("span", null, t.md)); td.appendChild(el("span", null, t.hm)); }
+    return td;
+  }
+  function nameCell(name, narrowHide) { return el("td", "name" + (name ? "" : " none") + (narrowHide ? " hide-s" : ""), name || "名前の登録なし"); }
+
+  function renderWinners() {
+    var body = $("winRows");
+    clear(body);
+    var rows = 0;
+    if (filter === "all") fresh.forEach(function (f) {
+      var tr = el("tr");
+      tr.appendChild(dtCell(f.time));
+      tr.appendChild(el("td", "nw", f.tiers.map(function (t) { return t.short; }).join("・")));
+      var fc = el("td", "cell-num");
+      fc.appendChild(el("span", "none", "公開待ち"));
+      fc.appendChild(el("div", "nm" + (f.name ? "" : " none"), f.name || "名前の登録なし"));
+      tr.appendChild(fc);
+      tr.appendChild(nameCell(f.name, true));
+      body.appendChild(tr);
+      rows++;
     });
-
-    var n = latest ? Math.round(num(latest.n, claims.length)) : claims.length;
-    $("winCount").textContent = "記録 " + claims.length + " 件" + (winners && winners.updated ? "・更新 " + jstShort(parseTime(winners.updated)) : "");
-
-    var list = $("winList");
-    clear(list);
-    var shown = 0;
-    // fresh first (newest, numbers not yet public)
-    if (filter === "all") fresh.forEach(function (f) { list.appendChild(freshRow(f)); shown++; });
     var match = claims.filter(function (c) { return filter === "all" || c.tier.key === filter; });
-    match.slice(0, listLimit).forEach(function (c) { list.appendChild(claimRow(c)); shown++; });
-    if (match.length > listLimit) {
-      var more = el("button", "small more-btn", "もっと見る（あと " + (match.length - listLimit) + " 件）");
-      more.type = "button";
-      more.addEventListener("click", function () { listLimit += 30; renderWinners(counts); });
-      list.appendChild(more);
+    match.slice(0, limit).forEach(function (c) {
+      var tr = el("tr");
+      tr.appendChild(dtCell(c.time));
+      tr.appendChild(el("td", "nw" + (c.tier.key === "t1" ? " gold" : ""), c.tier.short + (c.tier.parts ? "（" + c.tier.parts[c.idx] + "）" : "")));
+      var nc = el("td", "cell-num num");
+      nc.appendChild(el("span", null, "ユニット" + c.u));
+      nc.appendChild(el("span", null, g2(c.k) + "組 " + c.n + "番"));
+      nc.appendChild(el("div", "nm" + (c.name ? "" : " none"), c.name || "名前の登録なし"));
+      tr.appendChild(nc);
+      tr.appendChild(nameCell(c.name, true));
+      body.appendChild(tr);
+      rows++;
+    });
+    if (!rows) {
+      var tr = el("tr"), td = el("td", "none", winners ? "まだ当せんはありません" : "読み込めませんでした");
+      td.colSpan = 4;
+      tr.appendChild(td);
+      body.appendChild(tr);
     }
-    if (!shown) list.appendChild(el("div", "empty", winners ? "まだ当せんはありません" : "読み込めませんでした"));
+    var mb = $("moreBtn");
+    if (match.length > limit) { mb.hidden = false; mb.textContent = "もっと見る（あと " + (match.length - limit) + " 件）"; }
+    else mb.hidden = true;
+    $("winCount").textContent = winners ? match.length + " 件" : "";
   }
-
-  function claimRow(c) {
-    var t = c.tier;
-    var row = el("div", "row" + (newSlots[c.slot] ? " new" : ""));
-    row.style.setProperty("--c", t.c);
-    var badge = el("div", "badge", t.ja);
-    if (t.parts) badge.appendChild(el("small", null, "（" + t.parts[c.idx] + "）"));
-    row.appendChild(badge);
-    var main = el("div", "r-main");
-    var hd = el("div", "r-head");
-    hd.appendChild(el("span", "r-prize num", amountJa(t.amount)));
-    hd.appendChild(el("span", "r-time num", c.time ? jstShort(c.time) : ""));
-    main.appendChild(hd);
-    var tk = ticketParts(c.u, c.k, c.n);
-    var tline = el("div", "r-ticket num");
-    tline.appendChild(el("span", "u", tk.unit));
-    tline.appendChild(el("span", null, tk.num));
-    main.appendChild(tline);
-    row.appendChild(main);
-    var foot = el("div", "r-foot");
-    foot.appendChild(el("span", "r-name" + (c.name ? "" : " none"), c.name ? c.name : "名前の登録なし"));
-    row.appendChild(foot);
-    return row;
-  }
-
-  function freshRow(f) {
-    var t = f.tiers[0];
-    var row = el("div", "row fresh");
-    row.style.setProperty("--c", t.c);
-    var badge = el("div", "badge", t.ja);
-    badge.appendChild(el("small", null, "速報"));
-    row.appendChild(badge);
-    var main = el("div", "r-main");
-    var amt = f.tiers.reduce(function (a, x) { return a + x.amount; }, 0);
-    var hd = el("div", "r-head");
-    hd.appendChild(el("span", "r-prize num", f.tiers.map(function (x) { return x.ja; }).join("＋") + "　" + amountJa(amt)));
-    hd.appendChild(el("span", "r-time num", f.time ? jstShort(f.time) : ""));
-    main.appendChild(hd);
-    main.appendChild(el("div", "r-ticket", "番号は 少しあとで公開されます"));
-    row.appendChild(main);
-    var foot = el("div", "r-foot");
-    foot.appendChild(el("span", "r-name" + (f.name ? "" : " none"), f.name ? f.name : "名前の登録なし"));
-    row.appendChild(foot);
-    return row;
-  }
+  $("tierSel").addEventListener("change", function () { filter = this.value; limit = 50; renderWinners(); });
+  $("moreBtn").addEventListener("click", function () { limit += 50; renderWinners(); });
 
   function renderRanking() {
-    var by = {}, order = [], unnamed = 0;
+    var by = {}, list = [], unnamed = 0;
     claims.forEach(function (c) {
       if (!c.name) { unnamed++; return; }
-      var key = "\u0001" + c.name;            // exact string: no trimming, no width/！ folding
-      if (!by[key]) { by[key] = { name: c.name, sum: 0, n: 0, best: 99, first: c.time ? c.time.getTime() : 0 }; order.push(by[key]); }
-      var e = by[key];
-      e.sum += c.tier.amount; e.n++;
-      if (c.tier.index < e.best) e.best = c.tier.index;
-      if (c.time && c.time.getTime() < e.first) e.first = c.time.getTime();
+      var key = "\u0001" + c.name;          // exact string: no folding of ！ or widths
+      var t = c.time ? c.time.getTime() : 0;
+      if (!by[key]) { by[key] = { name: c.name, sum: 0, n: 0, first: t }; list.push(by[key]); }
+      by[key].sum += c.tier.amount; by[key].n++;
+      if (t && t < by[key].first) by[key].first = t;
     });
-    order.sort(function (a, b) { return b.sum - a.sum || b.n - a.n || a.first - b.first; });
-    var ol = $("rank");
-    clear(ol);
-    order.slice(0, 20).forEach(function (e, i) {
-      var li = el("li");
-      li.appendChild(el("span", "no num", i + 1));
-      var nm = el("span", "nm");
-      nm.appendChild(el("span", null, e.name));
-      nm.appendChild(el("small", null, e.n + "回・最高 " + TIERS[e.best].jaLong));
-      li.appendChild(nm);
-      li.appendChild(el("span", "sum num", amountJa(e.sum)));
-      ol.appendChild(li);
+    list.sort(function (a, b) { return b.sum - a.sum || b.n - a.n || a.first - b.first; });
+    var body = $("rankRows");
+    clear(body);
+    list.slice(0, 20).forEach(function (e, i) {
+      var tr = el("tr");
+      tr.appendChild(el("td", "num", i + 1));
+      tr.appendChild(el("td", "name", e.name));
+      tr.appendChild(el("td", "r num", e.n));
+      tr.appendChild(el("td", "r num nw", amountJa(e.sum)));
+      body.appendChild(tr);
     });
-    if (!order.length) ol.appendChild(el("li", null, "まだ名前の登録された当せんはありません"));
-    $("rankNote").textContent = "名前が まったく同じ当せんだけを まとめています（「！」の数が違えば 別の名前です）。" +
-      (unnamed ? "名前の登録なしの当せん " + unnamed + " 件は 入っていません。" : "");
+    if (!list.length) {
+      var tr = el("tr"), td = el("td", "none", "まだありません");
+      td.colSpan = 4; tr.appendChild(td); body.appendChild(tr);
+    }
+    $("rankNote").textContent = "名前がまったく同じものだけをまとめています（「！」の数が違えば別の名前です）。" +
+      (unnamed ? "名前の登録なしの " + unnamed + " 件は入っていません。" : "");
   }
 
   function renderHall() {
-    var t = TIERS[0], won = {};
-    claims.forEach(function (c) { if (c.tier === t) won[c.u] = c; });
-    var g = $("hgrid");
-    clear(g);
-    var count = 0;
+    var won = {}, count = 0;
+    claims.forEach(function (c) { if (c.tier.key === "t1") won[c.u] = c; });
+    var body = $("hallRows");
+    clear(body);
     for (var u = 1; u <= UNITS; u++) {
-      var c = won[u];
-      var cell = el("div", "hcell" + (c ? " won" : ""));
-      var hu = el("div", "hu");
-      hu.appendChild(document.createTextNode("ユニット "));
-      hu.appendChild(el("b", "num", (u < 10 ? "0" : "") + u));
-      cell.appendChild(hu);
+      var c = won[u], tr = el("tr");
+      tr.appendChild(el("td", "num" + (c ? " gold" : ""), (u < 10 ? "0" : "") + u));
       if (c) {
         count++;
-        cell.appendChild(el("div", "hn" + (c.name ? "" : " none"), c.name ? c.name : "名前の登録なし"));
-        cell.appendChild(el("div", "hd num", c.time ? jstDate(c.time) : ""));
+        tr.appendChild(nameCell(c.name));
+        var t = jst(c.time);
+        tr.appendChild(el("td", "r num nw", t ? t.y + "/" + t.md : ""));
       } else {
-        cell.appendChild(el("div", "wait", "まだ出ていません"));
+        tr.appendChild(el("td", "none", winners ? "まだ出ていません" : "—"));
+        tr.appendChild(el("td", "r"));
       }
-      g.appendChild(cell);
+      body.appendChild(tr);
     }
-    $("hallCount").textContent = count + " / " + UNITS + " 本";
+    $("hallCount").textContent = winners ? "23本のうち " + count + " 本が出ました。" : "";
   }
 
+  render();
   load();
-  updateLive();
 })();
 </script>
 </body>
