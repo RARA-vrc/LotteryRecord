@@ -121,7 +121,7 @@ footer p{margin:2px 0}
       <dt>全部で</dt><dd class="num">460,000,000 枚</dd>
     </dl>
     <div class="meter" aria-hidden="true"><i id="meter" style="width:0"></i></div>
-    <p class="note">公開の集計です。報告できない人の分は入らないので、実際より少なめに出ます。</p>
+    <p class="note">公開の集計です。各会場からの報告は1万枚ずつまとめて届くので、更新は不定期で、実際の販売より遅れて増えます。報告できない人の分は入らないので、実際より少なめに出ます。</p>
 
     <h3>★の残り（1等〜3等）</h3>
     <table>
@@ -148,7 +148,7 @@ footer p{margin:2px 0}
       <tbody id="winRows"></tbody>
     </table>
     <button class="more" id="moreBtn" type="button" hidden></button>
-    <p class="note">新しい順。名前は当てた人がワールドで登録したものです。番号は当せんの数分あとに公開されます。</p>
+    <p class="note">新しい順。名前は当てた人がワールドで登録したものです。当せんはおよそ5〜15分遅れて載ります。</p>
 
     <h3>当せん金の合計（名前ごと）</h3>
     <table>
@@ -406,8 +406,7 @@ footer p{margin:2px 0}
     s.className = "status";
     if (!latest) { s.textContent = "読み込んでいます"; return; }
     var at = num(latest.sold_at, 0), t = jst(at > 0 ? new Date(at * 1000) : parseTime(latest.updated));
-    var every = pollSec % 60 === 0 ? (pollSec / 60) + "分" : pollSec + "秒";
-    s.textContent = (t ? t.md + " " + t.hm + " 時点・" : "") + every + "ごとに自動更新" +
+    s.textContent = (t ? "販売数は " + t.md + " " + t.hm + " 時点の集計です（新しい集計が出ると自動で読み込みます）" : "販売数の集計を待っています") +
       (Math.round(num(latest.sold_paused, 0)) === 1 ? "（販売数の集計はお休み中）" : "");
   }
 
