@@ -1,4 +1,4 @@
-{"sale":1,"updated":"2026-10-20T20:39:15+09:00","source":"world-check","rev":53,"remaining":{},"claims":[
+{"sale":1,"updated":"2026-10-20T20:50:15+09:00","source":"world-check","rev":54,"remaining":{},"claims":[
 {"i":0,"tier":"t1","u":1,"k":125,"n":101671,"name":"","time":"2026-10-17T19:53:13+09:00","code":"K56KPZ9H"},
 {"i":23,"tier":"zengo","u":1,"k":125,"n":101670,"name":"","time":"2026-10-17T19:53:13+09:00","code":"K56KPZ9H"},
 {"i":24,"tier":"zengo","u":1,"k":125,"n":101672,"name":"","time":"2026-10-17T19:53:13+09:00","code":"K56KPZ9H"},
@@ -46,5 +46,6 @@
 {"i":13,"tier":"t1","u":14,"k":125,"n":101671,"name":"Furami","time":"2026-10-20T01:42:49+09:00","code":"979K7MR2"},
 {"i":83,"tier":"t2","u":15,"k":141,"n":144453,"name":"moeka-c","time":"2026-10-20T06:18:13+09:00","code":"76DRV34J"},
 {"i":158,"tier":"t3","u":17,"k":18,"n":117449,"name":"Migats21","time":"2026-10-20T07:57:33+09:00","code":"2TR64YY2"},
-{"i":99,"tier":"t3","u":2,"k":6,"n":158063,"name":"merrystory","time":"2026-10-20T20:34:00+09:00","code":"XVHZBYQJ"}
+{"i":99,"tier":"t3","u":2,"k":6,"n":158063,"name":"merrystory","time":"2026-10-20T20:34:00+09:00","code":"XVHZBYQJ"},
+{"i":47,"tier":"zengo","u":13,"k":125,"n":101670,"name":"sans","time":"2026-10-20T20:39:01+09:00","code":"KGK2KWH0"}
 ]}
