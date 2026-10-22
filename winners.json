@@ -1,4 +1,4 @@
-{"sale":1,"updated":"2026-10-22T21:50:15+09:00","source":"world-check","rev":78,"remaining":{},"claims":[
+{"sale":1,"updated":"2026-10-22T22:15:19+09:00","source":"world-check","rev":79,"remaining":{},"claims":[
 {"i":0,"tier":"t1","u":1,"k":125,"n":101671,"name":"","time":"2026-10-17T19:53:13+09:00","code":"K56KPZ9H"},
 {"i":23,"tier":"zengo","u":1,"k":125,"n":101670,"name":"","time":"2026-10-17T19:53:13+09:00","code":"K56KPZ9H"},
 {"i":24,"tier":"zengo","u":1,"k":125,"n":101672,"name":"","time":"2026-10-17T19:53:13+09:00","code":"K56KPZ9H"},
@@ -68,5 +68,7 @@
 {"i":111,"tier":"t3","u":5,"k":6,"n":158063,"name":"BubbleRiot","time":"2026-10-22T03:50:04+09:00","code":"AB1FY744"},
 {"i":115,"tier":"t3","u":6,"k":6,"n":158063,"name":"camellia","time":"2026-10-22T12:45:35+09:00","code":"YR4017TN"},
 {"i":58,"tier":"zengo","u":18,"k":125,"n":101672,"name":"アゲあげ太","time":"2026-10-22T15:01:28+09:00","code":"SCF289G3"},
-{"i":63,"tier":"zengo","u":21,"k":125,"n":101670,"name":"＋ritokin","time":"2026-10-22T21:41:42+09:00","code":"M5PZWQY5"}
+{"i":63,"tier":"zengo","u":21,"k":125,"n":101670,"name":"＋ritokin","time":"2026-10-22T21:41:42+09:00","code":"M5PZWQY5"},
+{"i":12,"tier":"t1","u":13,"k":125,"n":101671,"name":"naname+strong","time":"2026-10-22T22:04:03+09:00","code":"TA37RVP5"},
+{"i":71,"tier":"t2","u":3,"k":141,"n":144453,"name":"＋tiyokin","time":"2026-10-22T22:04:54+09:00","code":"TGPK0W9C"}
 ]}
