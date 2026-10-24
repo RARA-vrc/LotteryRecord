@@ -1,4 +1,4 @@
-{"sale":1,"updated":"2026-10-25T03:39:15+09:00","source":"world-check","rev":117,"remaining":{},"claims":[
+{"sale":1,"updated":"2026-10-25T05:00:17+09:00","source":"world-check","rev":118,"remaining":{},"claims":[
 {"i":0,"tier":"t1","u":1,"k":125,"n":101671,"name":"","time":"2026-10-17T19:53:13+09:00","code":"K56KPZ9H"},
 {"i":23,"tier":"zengo","u":1,"k":125,"n":101670,"name":"","time":"2026-10-17T19:53:13+09:00","code":"K56KPZ9H"},
 {"i":24,"tier":"zengo","u":1,"k":125,"n":101672,"name":"","time":"2026-10-17T19:53:13+09:00","code":"K56KPZ9H"},
@@ -112,5 +112,6 @@
 {"i":124,"tier":"t3","u":9,"k":68,"n":118613,"name":"黒葉五葉","time":"2026-10-25T01:14:45+09:00","code":"NTN12ANX"},
 {"i":60,"tier":"zengo","u":19,"k":125,"n":101672,"name":"さとう31","time":"2026-10-25T01:20:24+09:00","code":"D5KKTD5Y"},
 {"i":116,"tier":"t3","u":7,"k":68,"n":118613,"name":"卵バル パウ 大阪市東住吉区針中野２丁目１１−２","time":"2026-10-25T01:28:40+09:00","code":"D7CQFZJ4"},
-{"i":45,"tier":"zengo","u":12,"k":125,"n":101670,"name":"https://script.google.co","time":"2026-10-25T03:25:37+09:00","code":"D0M1MM4F"}
+{"i":45,"tier":"zengo","u":12,"k":125,"n":101670,"name":"https://script.google.co","time":"2026-10-25T03:25:37+09:00","code":"D0M1MM4F"},
+{"i":62,"tier":"zengo","u":20,"k":125,"n":101672,"name":"ぱんだぁあ","time":"2026-10-25T04:49:06+09:00","code":"PKX0NNAB"}
 ]}
