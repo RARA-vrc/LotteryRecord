@@ -1,4 +1,4 @@
-{"sale":1,"updated":"2026-10-28T01:35:16+09:00","source":"world-check","rev":151,"remaining":{},"claims":[
+{"sale":1,"updated":"2026-10-28T01:56:16+09:00","source":"world-check","rev":152,"remaining":{},"claims":[
 {"i":0,"tier":"t1","u":1,"k":125,"n":101671,"name":"","time":"2026-10-17T19:53:13+09:00","code":"K56KPZ9H"},
 {"i":23,"tier":"zengo","u":1,"k":125,"n":101670,"name":"","time":"2026-10-17T19:53:13+09:00","code":"K56KPZ9H"},
 {"i":24,"tier":"zengo","u":1,"k":125,"n":101672,"name":"","time":"2026-10-17T19:53:13+09:00","code":"K56KPZ9H"},
@@ -147,5 +147,6 @@
 {"i":93,"tier":"t3","u":1,"k":130,"n":165894,"name":"waimiya","time":"2026-10-28T01:09:43+09:00","code":"NCSFF2TR"},
 {"i":182,"tier":"t3","u":23,"k":18,"n":117449,"name":"Sinorein［シノレイン］","time":"2026-10-28T01:10:29+09:00","code":"086JJVAK"},
 {"i":181,"tier":"t3","u":23,"k":130,"n":165894,"name":"gat8","time":"2026-10-28T01:10:35+09:00","code":"GHYE3DVA"},
-{"i":51,"tier":"zengo","u":15,"k":125,"n":101670,"name":"mamomo","time":"2026-10-28T01:25:48+09:00","code":"9J3YXJ4X"}
+{"i":51,"tier":"zengo","u":15,"k":125,"n":101670,"name":"mamomo","time":"2026-10-28T01:25:48+09:00","code":"9J3YXJ4X"},
+{"i":91,"tier":"t2","u":23,"k":141,"n":144453,"name":"k_kuren","time":"2026-10-28T01:44:00+09:00","code":"Q3X0DG60"}
 ]}
