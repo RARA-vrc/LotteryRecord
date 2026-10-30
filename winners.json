@@ -1,4 +1,4 @@
-{"sale":1,"updated":"2026-10-30T21:58:17+09:00","source":"world-check","rev":184,"remaining":{},"claims":[
+{"sale":1,"updated":"2026-10-30T23:43:16+09:00","source":"world-check","rev":185,"remaining":{},"claims":[
 {"i":0,"tier":"t1","u":1,"k":125,"n":101671,"name":"","time":"2026-10-17T19:53:13+09:00","code":"K56KPZ9H"},
 {"i":23,"tier":"zengo","u":1,"k":125,"n":101670,"name":"","time":"2026-10-17T19:53:13+09:00","code":"K56KPZ9H"},
 {"i":24,"tier":"zengo","u":1,"k":125,"n":101672,"name":"","time":"2026-10-17T19:53:13+09:00","code":"K56KPZ9H"},
@@ -181,5 +181,6 @@
 {"i":165,"tier":"t3","u":19,"k":130,"n":165894,"name":"akkun4ever","time":"2026-10-30T20:25:02+09:00","code":"D7345A5W"},
 {"i":54,"tier":"zengo","u":16,"k":125,"n":101672,"name":"Re9","time":"2026-10-30T20:40:12+09:00","code":"VZEGD0SM"},
 {"i":35,"tier":"zengo","u":7,"k":125,"n":101670,"name":"BOKUGABOKU","time":"2026-10-30T21:42:45+09:00","code":"1CVJXS3T"},
-{"i":112,"tier":"t3","u":6,"k":68,"n":118613,"name":"Full_265","time":"2026-10-30T21:47:59+09:00","code":"QXQ12YYT"}
+{"i":112,"tier":"t3","u":6,"k":68,"n":118613,"name":"Full_265","time":"2026-10-30T21:47:59+09:00","code":"QXQ12YYT"},
+{"i":159,"tier":"t3","u":17,"k":6,"n":158063,"name":"Adako","time":"2026-10-30T23:37:57+09:00","code":"QVHP6C29"}
 ]}
